@@ -1,0 +1,42 @@
+<h2> Your Expense Tracker is here</h2>
+<div class="container">
+<div class="outerSection">
+<label for="disc"> Discription: </label>
+<input id="disc" placeholder="Enter the discription" type="text" [(ngModel)]="expenseDisc"/><br>
+
+<label for="amt">Amount:  </label>
+<input id="amt" placeholder="Enter the amount" type="number" [(ngModel)]="expenseAmt"/><br>
+<label for="type"> Select the type</label>
+<select id="type" [(ngModel)]="expenseType">
+    <option value="Income"> Income</option>
+    <option value="Expense">  Expense</option>
+</select><br>
+
+<label for="category">Select the category  </label>
+<select id="category" [(ngModel)]="expenseCategory">
+    <option value="Food">Food</option>
+    <option value="Transport">Transport</option>
+    <option value="Salary">Salary</option>
+</select><br>
+
+<label for="date">Date: </label>
+<input  id="date" type="date" [(ngModel)]="expenseDate"/>
+<button (click)="addExpense()">Add</button>
+
+
+<div>
+    <h3>Total Balance: {{ totalBalance }}</h3>
+    <h3>Total Income: {{ totalIncome}}</h3>
+    <h3>Total Expense: {{totalExpenses }}</h3>
+</div>
+
+<div class="ShowSection">
+    <h3>All the expenses</h3>
+    <ul>
+        <li *ngFor="let expense of allExpense ">
+            ID:{{expense.id}}   Amount:{{expense.amount}} Type:{{expense.type}}  Category: {{expense.category}}  Date:{{expense.date}}
+        </li>
+    </ul>
+
+</div>
+</div>
